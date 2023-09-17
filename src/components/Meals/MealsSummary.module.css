@@ -1,0 +1,17 @@
+.summary {
+  font: inherit;
+  text-align: center;
+  background-color: black;
+  color: white;
+  width: 50%;
+  padding: 1rem;
+  border-radius: 14px;
+  margin: auto;
+  margin-top: -5.5rem;
+  box-shadow: 0 1px 18px 10px rgba(221, 221, 221, 0.25);
+  position: relative;
+}
+.summary h2 {
+  font-size: 2rem;
+  margin-top: 0;
+}

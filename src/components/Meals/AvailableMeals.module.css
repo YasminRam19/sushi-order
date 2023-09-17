@@ -1,0 +1,17 @@
+.meals {
+  font: inherit;
+  text-align: center;
+  background-color: white;
+  width: 90%;
+  padding: 1rem;
+  border-radius: 14px;
+  margin: auto;
+  margin-top: 4rem;
+  box-shadow: 0 1px 18px 10px rgba(221, 221, 221, 0.15);
+}
+
+.meals ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

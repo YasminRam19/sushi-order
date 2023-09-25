@@ -41,6 +41,33 @@ const cartReducer = (state, action) => {
       totalAmount: updatedTotalAmount,
     };
   }
+  if (action.type === "REMOVE_MEAL") {
+    //Find the index of an existing item
+    const existingCartItemIndex = state.items.findIndex(
+      (item) => item.id === action.id
+    );
+    const existingItem = state.items[existingCartItemIndex];
+    const updatedTotalAmount = state.totalAmount - existingItem.price;
+
+    let updatedItems;
+
+    //Quanity one means that it's the last item of that type, so in this case, we will rempve the entire item from the array
+    if (existingItem.amount === 1) {
+      //All items that are not equal to the actio id are kept
+      updatedItems = state.items.filter((item) => item.id !== action.id);
+    }
+    //We keep the item in the array, but we decrease the amount
+    else {
+      const updatedItem = { ...existingItem, amount: existingItem.amount - 1 };
+      updatedItems = [...state.items];
+      updatedItems[existingCartItemIndex] = updatedItem;
+    }
+    return {
+      items: updatedItems,
+      totalAmount: updatedTotalAmount,
+    };
+  }
+  return defaultCartState;
 };
 
 const CartProvider = (props) => {

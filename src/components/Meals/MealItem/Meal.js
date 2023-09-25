@@ -10,6 +10,7 @@ const Meal = (props) => {
   //Establish the connection to the context so that we are able to call the addItem function.
   const cartCtx = useContext(CartContext);
 
+  //We get the validated amount as a parameter from the MealItemForm
   const addToCartHandler = (amount) => {
     cartCtx.addItem({
       id: props.meal.id,
@@ -33,7 +34,7 @@ const Meal = (props) => {
         <p>{props.meal.description}</p>
       </div>
       <div>
-        <MealItemForm onAddTocart={addToCartHandler} />
+        <MealItemForm onAddToCart={addToCartHandler} />
       </div>
     </li>
   );

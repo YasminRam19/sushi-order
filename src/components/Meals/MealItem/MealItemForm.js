@@ -9,9 +9,10 @@ const MealItemForm = (props) => {
   };
  */
 
+  //The purpose of this state is to display a text if value is not valid.
   const [amountIsValid, setAmountIsValid] = useState(true);
 
-  const amountInputRef = useRef(0);
+  const amountInputRef = useRef();
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -20,9 +21,9 @@ const MealItemForm = (props) => {
 
     //If no value was entered
     if (
-      // enteredAmount.trim().length === 0 ||
+      enteredAmount.trim().length === 0 ||
       enteredAmountNumber < 1 ||
-      enteredAmount > 5
+      enteredAmount > 10
     ) {
       setAmountIsValid(false);
       return;
@@ -30,8 +31,8 @@ const MealItemForm = (props) => {
 
     //If input is valid -> execute the context method: addItem
     //BUT we will send it through props, because the context method needs more data that only the amount
-    //props.onAddToCart(enteredAmountNumber);
-    console.log("TEST");
+    props.onAddToCart(enteredAmountNumber);
+    console.log("Amount added to the cart", amountInputRef.current.value);
   };
 
   return (
